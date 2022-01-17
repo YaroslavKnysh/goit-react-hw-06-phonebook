@@ -1,11 +1,11 @@
 import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { configureStore } from '@reduxjs/toolkit';
-import todosReducer from './todos-reducers';
-import types from './todos-types';
+import contactsReducer from './reducers';
+import types from './types';
 
 const rootReducer = combineReducers({
-  todos: todosReducer,
+  contacts: contactsReducer,
 });
 
 const store = createStore(rootReducer, composeWithDevTools());
@@ -22,3 +22,4 @@ export default store;
 // const reducer = { state = contactsStore, action } => {
 
 // }
+

@@ -1,7 +1,8 @@
+import { createAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
-import types from './todos-types';
+import types from './types';
 
-const addTodo = (name, number) => ({
+const addContact = (name, number) => ({
   type: types.ADD_CONTACT,
   payload: {
     id: nanoid(),
@@ -9,5 +10,28 @@ const addTodo = (name, number) => ({
     number,
   },
 });
+export default { addContact };
 
-export { addTodo };
+// export const addContact = createAction(
+//   'contacts/add_contact',
+//   (name, number) => ({
+//     payload: { id: nanoid(), name, number },
+//   }),
+// );
+
+// export const deleteContact = createAction('contacts/delete_contact');
+// export const addFilter = createAction('contacts/add_filter');
+
+// import { nanoid } from 'nanoid';
+// import types from './todos-types';
+
+// const addTodo = (name, number) => ({
+//   type: types.ADD_CONTACT,
+//   payload: {
+//     id: nanoid(),
+//     name,
+//     number,
+//   },
+// });
+
+// export { addTodo };
