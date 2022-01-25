@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
+import { addContact } from '../redux/actions';
 import { nanoid } from 'nanoid';
+import { connect, useSelector } from 'react-redux';
 
 const ContactsForm = ({ onAddContact, contacts }) => {
   const [name, setName] = useState('');
@@ -11,11 +12,7 @@ const ContactsForm = ({ onAddContact, contacts }) => {
     if (contacts.find(item => item.name.toLowerCase() === name.toLowerCase())) {
       return window.alert(`${name} is already in contacts`);
     } else {
-      onAddContact({
-        id: nanoid(),
-        name,
-        number,
-      });
+      onAddContact();
 
       setName('');
       setNumber('');
@@ -47,5 +44,17 @@ const ContactsForm = ({ onAddContact, contacts }) => {
     </form>
   );
 };
-
-export default ContactsForm;
+const mapStateToProps = state => ({
+  contacts: state.contacts.items,
+});
+const mapDispatchToProps = dispatch => ({
+  onAddContact: (name, number) =>
+    dispatch(
+      addContact({
+        id: nanoid(),
+        name,
+        number,
+      }),
+    ),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsForm);

@@ -12,11 +12,17 @@ const items = (state = initialState.contacts.items, { type, payload }) => {
       return state;
   }
 };
-
-const filter = (state = initialState.contacts.filter, actions) => {
-  return state;
+const filter = (state = initialState.contacts.filter, { type, payload }) => {
+  switch (type) {
+    case types.FILTER:
+      return payload;
+    // initialState.contacts.items.filter(item =>
+    //   item.name.toLowerCase().includes(state.toLowerCase()),
+    // );
+    default:
+      return state;
+  }
 };
-
 export default combineReducers({
   items,
   filter,

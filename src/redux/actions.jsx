@@ -10,7 +10,17 @@ const addContact = (name, number) => ({
     number,
   },
 });
-export default { addContact };
+
+const deleteContact = id => ({
+  type: types.DELETE_CONTACT,
+  payload: id,
+});
+
+const filterContact = value => ({
+  type: types.FILTER,
+  payload: value,
+});
+export { addContact, deleteContact, filterContact };
 
 // export const addContact = createAction(
 //   'contacts/add_contact',

@@ -1,6 +1,6 @@
 const types = {
-  ADD_CONTACT: 'contact/Add',
-  DELETE_CONTACT: 'contact/Delete',
+  ADD_CONTACT: 'contacts/Add',
+  DELETE_CONTACT: 'contacts/Delete',
   FILTER: 'contacts/Filter',
 };
 
